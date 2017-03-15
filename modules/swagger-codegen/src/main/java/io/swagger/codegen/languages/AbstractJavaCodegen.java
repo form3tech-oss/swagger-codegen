@@ -570,28 +570,31 @@ public abstract class AbstractJavaCodegen extends DefaultCodegen implements Code
     public String toDefaultValue(Property p) {
         if (p instanceof ArrayProperty) {
             final ArrayProperty ap = (ArrayProperty) p;
-            final String pattern;
-            if (fullJavaUtil) {
-                pattern = "new java.util.ArrayList<%s>()";
-            } else {
-                pattern = "new ArrayList<%s>()";
-            }
-            if (ap.getItems() == null) {
-                return null;
-            }
-            return String.format(pattern, getTypeDeclaration(ap.getItems()));
+            // final String pattern;
+            // if (fullJavaUtil) {
+            //     pattern = "new java.util.ArrayList<%s>()";
+            // } else {
+            //     pattern = "new ArrayList<%s>()";
+            // }
+            // if (ap.getItems() == null) {
+            //     return null;
+            // }
+            // return String.format(pattern, getTypeDeclaration(ap.getItems()));
+            return "null";
+
         } else if (p instanceof MapProperty) {
             final MapProperty ap = (MapProperty) p;
-            final String pattern;
-            if (fullJavaUtil) {
-                pattern = "new java.util.HashMap<String, %s>()";
-            } else {
-                pattern = "new HashMap<String, %s>()";
-            }
-            if (ap.getAdditionalProperties() == null) {
-                return null;
-            }
-            return String.format(pattern, getTypeDeclaration(ap.getAdditionalProperties()));
+            // final String pattern;
+            // if (fullJavaUtil) {
+            //     pattern = "new java.util.HashMap<String, %s>()";
+            // } else {
+            //     pattern = "new HashMap<String, %s>()";
+            // }
+            // if (ap.getAdditionalProperties() == null) {
+            //     return null;
+            // }
+            // return String.format(pattern, getTypeDeclaration(ap.getAdditionalProperties()));
+            return "null";
         } else if (p instanceof IntegerProperty) {
             IntegerProperty dp = (IntegerProperty) p;
             if (dp.getDefault() != null) {
