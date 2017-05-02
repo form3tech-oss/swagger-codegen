@@ -2,6 +2,7 @@
  * {{#description}}{{.}}{{/description}}{{^description}}{{classname}}{{/description}}
  */{{#description}}
 @ApiModel(description = "{{{description}}}"){{/description}}
+@Validated
 {{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}
 public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#serializableModel}}implements Serializable{{/serializableModel}} {
   {{#vars}}
@@ -23,6 +24,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   {{#gson}}
   @SerializedName("{{baseName}}")
   {{/gson}}
+  {{#useBeanValidation}}@Valid{{/useBeanValidation}}
   private {{{datatypeWithEnum}}} {{name}} = {{{defaultValue}}};
 
   {{/vars}}

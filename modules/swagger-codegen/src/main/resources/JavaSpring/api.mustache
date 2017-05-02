@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.concurrent.{{^jdk8}}Callable{{/jdk8}}{{#jdk8}}CompletableFuture{{/jdk8}};
 {{/async}}
 {{#useBeanValidation}}
+import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 {{/useBeanValidation}}
 {{>generatedAnnotation}}
